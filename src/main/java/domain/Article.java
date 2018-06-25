@@ -9,6 +9,7 @@ public class Article {
     private String author;
     private Date creationDate;
     private Date modificationDate;
+    private String tags;
     private String content;
 
     public Article() {
