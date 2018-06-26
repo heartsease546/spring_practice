@@ -2,16 +2,16 @@ package domain;
 
 import java.util.Date;
 
-public class Comment {
+public class Reply {
 
     private int id;
-    private int aid;
+    private int cid;
     private String email;
     private String nickname;
-    private Date creationDate;
     private String content;
+    private Date creationDate;
 
-    public Comment() {
+    public Reply() {
     }
 
     public int getId() {
@@ -22,12 +22,12 @@ public class Comment {
         this.id = id;
     }
 
-    public int getAid() {
-        return aid;
+    public int getCid() {
+        return cid;
     }
 
-    public void setAid(int aid) {
-        this.aid = aid;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public String getEmail() {
@@ -46,19 +46,19 @@ public class Comment {
         this.nickname = nickname;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

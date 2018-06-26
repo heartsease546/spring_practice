@@ -5,8 +5,8 @@ import java.util.Date;
 public class Admin {
 
     private int id;
-    private int role;
-    private int priviledge;
+    private int rid;
+    private int pid;
     private String account;
     private String password;
     private Date creationDate;
@@ -23,20 +23,20 @@ public class Admin {
         this.id = id;
     }
 
-    public int getRole() {
-        return role;
+    public int getRid() {
+        return rid;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setRid(int rid) {
+        this.rid = rid;
     }
 
-    public int getPriviledge() {
-        return priviledge;
+    public int getPid() {
+        return pid;
     }
 
-    public void setPriviledge(int priviledge) {
-        this.priviledge = priviledge;
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
     public String getAccount() {

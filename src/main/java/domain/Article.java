@@ -9,7 +9,7 @@ public class Article {
     private String author;
     private Date creationDate;
     private Date modificationDate;
-    private String tags;
+    private int cid;
     private String content;
 
     public Article() {
@@ -53,6 +53,14 @@ public class Article {
 
     public void setModificationDate(Date modificationDate) {
         this.modificationDate = modificationDate;
+    }
+
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public String getContent() {
