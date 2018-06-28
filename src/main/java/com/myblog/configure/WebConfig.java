@@ -1,4 +1,4 @@
-package com.myblog.utils;
+package com.myblog.configure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

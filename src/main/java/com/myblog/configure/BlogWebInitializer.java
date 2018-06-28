@@ -1,4 +1,4 @@
-package com.myblog.utils;
+package com.myblog.configure;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -6,7 +6,6 @@ public class BlogWebInitializer extends AbstractAnnotationConfigDispatcherServle
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-
         return new Class[] {RootConfig.class};
     }
 

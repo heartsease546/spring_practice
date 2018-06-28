@@ -1,6 +1,7 @@
 import com.myblog.dao.AdminDao;
+import com.myblog.entity.Admin;
 import com.myblog.service.AdminService;
-import com.myblog.utils.RootConfig;
+import com.myblog.configure.RootConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,13 @@ public class TestConfig {
     @Autowired
     private AdminService adminService;
 
-    @Autowired
-    private AdminDao adminDao;
+    // @Autowired
+    // private AdminDao adminDao;
 
     @Test
     public void serviceShouldNotBeNull () {
-        assertNotNull(adminDao);
-        System.out.println(adminDao + ", " + adminService);
+        Admin admin = adminService.getAdmin("heartsease", "test123");
+        assertNotNull(admin);
+        System.out.println(adminService + ", " + admin);
     }
 }

@@ -70,4 +70,10 @@ public class Admin {
     public void setLastLoginDate(Date lastLoginDate) {
         this.lastLoginDate = lastLoginDate;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + this.id + ", role: " + this.rid + ", privilege: " + this.pid
+                + ", account: " + this.account + ".";
+    }
 }
