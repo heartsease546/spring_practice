@@ -1,27 +1,27 @@
 package com.myblog.configure;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.transaction.managed.ManagedTransactionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
+// @MapperScan(basePackages = {"com.myblog.dao"})
 public class DatabaseConfig {
 
-    @Autowired
-    private DruidDataSource dataSource;
-    @Autowired
-    private SqlSessionFactoryBean sqlSessionFactoryBean;
+    // if append below codes, will prompt 'circular reference'
+    // it may be due to this class will auto inject the relative class but we inject the class manually again
+    // @Autowired
+    // private DruidDataSource dataSource;
+    // @Autowired
+    // private SqlSessionFactoryBean sqlSessionFactoryBean;
 
     @Bean("dataSource")
     public DruidDataSource dataSource() {
@@ -50,34 +50,34 @@ public class DatabaseConfig {
     }
 
     @Bean("sqlSessionFactoryBean")
-    public SqlSessionFactoryBean sqlSessionFactoryBean() {
+    public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(this.dataSource);
+        sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
         sqlSessionFactoryBean.setTypeAliasesPackage("com.myblog.entity");
         sqlSessionFactoryBean.setMapperLocations(new Resource[]{
-            new ClassPathResource("com.myblog.dao.sql.AdminDaoMapper.xml")
+                new ClassPathResource("com/myblog/sql/AdminDao.xml")
         });
         return sqlSessionFactoryBean;
     }
 
     @Bean("sqlSession")
-    public SqlSessionTemplate sqlSession() {
+    public SqlSessionTemplate sqlSession(SqlSessionFactoryBean sqlSessionFactoryBean) {
         SqlSessionTemplate sqlSession = null;
         try {
             sqlSession = new SqlSessionTemplate(sqlSessionFactoryBean.getObject());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Configuration configuration = new Configuration();
-
         return sqlSession;
     }
 
+    // if use below codes and will prompt errors: dataSource is not identified
+    // could use @MapperScan annotation
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage("com.myblog.dao.sql");
+        mapperScannerConfigurer.setBasePackage("com.myblog.dao");
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
         return mapperScannerConfigurer;
     }

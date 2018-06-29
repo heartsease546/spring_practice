@@ -5,4 +5,6 @@ import com.myblog.entity.Admin;
 public interface AdminService {
 
     Admin getAdmin(String account, String password);
+
+    int checkAdmin(String account);
 }

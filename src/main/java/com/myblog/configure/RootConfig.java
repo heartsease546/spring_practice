@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 // The filter of @Component is for excluding the web packages
 @Configuration
 @Import(DatabaseConfig.class)
-@ComponentScan(basePackages = {"com.myblog"},
+@ComponentScan(basePackages = {"com.myblog.service"},
     excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)
     })

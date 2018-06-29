@@ -2,6 +2,7 @@ import com.myblog.dao.AdminDao;
 import com.myblog.entity.Admin;
 import com.myblog.service.AdminService;
 import com.myblog.configure.RootConfig;
+import com.myblog.service.impl.AdminServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,7 @@ import static org.junit.Assert.assertNotNull;
 public class TestConfig {
 
     @Autowired
-    private AdminService adminService;
-
-    // @Autowired
-    // private AdminDao adminDao;
+    private AdminService adminService = new AdminServiceImpl();
 
     @Test
     public void serviceShouldNotBeNull () {
