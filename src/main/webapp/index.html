@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heartsease - Backend Management</title>
+  <style type="text/css">
+    body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      text-decoration-line: none;
+      background: #43C6AC;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      font-family: Consolas;
+      color: white;
+    }
+    #container {
+      height: 900px;
+    }
+    .frame {
+      position: absolute;
+      background: black;
+    }
+    #frame_top {
+      height: 75px;
+      width: 1280px;
+    }
+    #frame_left {
+      top: 90px;
+      height: 500px;
+      width: 120px;
+    }
+    #frame_right {
+      top: 90px;
+      left: 150px;
+      height: 500px;
+      width: 800px;
+    }
+    #frame_bottom {
+      bottom: 10px;
+      height: 50px;
+      width: 1280px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="frame" id="frame_top">
+      test-top
+    </div>
+    <div class="frame" id="frame_left">
+      test-left
+    </div>
+    <div class="frame" id="frame_right">
+      tese-right
+    </div>
+    <div class="frame" id="frame_bottom">
+      test-bottom
+    </div>
+  </div>
+</body>
+<script src="vue.js"></script>
+</html>
