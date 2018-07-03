@@ -1,64 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Heartsease - Backend Management</title>
+  <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+  <script type="text/javascript">
+    function displayCurrentTime() {
+      $('#current_time_span').text('');
+      current_time = new Date();
+      year = current_time.getFullYear();
+      month = current_time.getMonth() + 1;
+      date = current_time.getDate();
+      $('#current_time_span').text(current_time.toLocaleString());
+    }
+    setInterval('displayCurrentTime()', 1000);
+  </script>
   <style type="text/css">
+    html {
+    }
     body {
       width: 100%;
       height: 100%;
       padding: 0;
       margin: 0;
       text-decoration-line: none;
-      background: #43C6AC;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #134E5E;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to left, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to left, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       font-family: Consolas;
       color: white;
     }
+    a {
+      text-decoration-line: none;
+      color: inherit;
+    }
+    a:hover {
+      color: yellow;
+      cursor: pointer;
+    }
     #container {
-      height: 900px;
+      min-width: 90%;
+      max-width: 90%;
+      height: 960px;
+      margin: auto;
     }
     .frame {
-      position: absolute;
-      background: black;
+      float: left;
+      background: #003333;
     }
     #frame_top {
       height: 75px;
-      width: 1280px;
+      width: 96%;
+      margin: 1% 2% 0.5% 2%;
+    }
+    #current_time_span {
+      display: block;
     }
     #frame_left {
-      top: 90px;
-      height: 500px;
-      width: 120px;
+      width: 15%;
+      height: 80%;
+      margin-left: 2%;
+    }
+    #menu_div {
+      text-align: center;
     }
     #frame_right {
-      top: 90px;
-      left: 150px;
-      height: 500px;
-      width: 800px;
+      float: right;
+      width: 80%;
+      height: 80%;
+      margin-right: 2%;
     }
     #frame_bottom {
-      bottom: 10px;
       height: 50px;
-      width: 1280px;
+      width: 96%;
+      margin: 0.5% 2% 1% 2%;
     }
   </style>
 </head>
 <body>
   <div id="container">
     <div class="frame" id="frame_top">
-      test-top
+      <span>Backend Management</span>
+      <span id="current_time_span"></span>
+      <span id="user_span">test</span>
+      <a href="#">Logout</a>
     </div>
     <div class="frame" id="frame_left">
-      test-left
+      <div id="menu_div">
+        <div id="account_management_div">
+          <a>个人信息</a>
+        </div>
+        <div id="user_management_div">
+          <a>用户管理</a>
+        </div>
+        <div id="article_management_div">
+          <a>文章管理</a>
+        </div>
+      </div>
+      <div id="app-2">
+        <span v-bind:title="message">
+          鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+      </div>
     </div>
     <div class="frame" id="frame_right">
-      tese-right
+      test-right
     </div>
     <div class="frame" id="frame_bottom">
       test-bottom
     </div>
   </div>
 </body>
-<script src="vue.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: '页面加载于 ' + new Date().toLocaleString()
+    }
+  })
+</script>
 </html>
