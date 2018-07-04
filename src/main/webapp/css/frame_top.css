@@ -1,0 +1,19 @@
+#frame_top {
+  height: 75px;
+  width: 92%;
+  margin: 1% 2% 0.5% 2%;
+  padding: 1% 2%;
+}
+
+#frame_top #top_left {
+  float: left;
+}
+
+#frame_top #top_right {
+  float: right;
+}
+
+#top_left span {
+  display: block;
+  font-size: 2em;
+}

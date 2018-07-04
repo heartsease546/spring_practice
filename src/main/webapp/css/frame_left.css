@@ -1,0 +1,54 @@
+#frame_left {
+  width: 20%;
+  height: 80%;
+  margin-left: 2%;
+}
+
+#menu_div {
+  height: 95%;
+  border: 1px;
+}
+
+.menu_div {
+  height: 5%;
+  padding: 2% 0 2% 5%;
+  border-bottom: 1px rgba(255, 255, 255, 0.35) solid;
+}
+
+.menu_div .iconfont {
+  display: inline-block;
+  font-size: 18px;
+}
+
+.menu_div:first-child,
+.menu_div:last-child {
+  border-bottom: none;
+}
+
+.menu_div:first-child {
+  height: 6%;
+  /*#003333;*/
+  background: rgba(0, 51, 51, 0.5);
+}
+
+.menu_div:first-child div,
+.menu_div:first-child span {
+  font-size: 1.5em;
+  display: inline-block;
+  padding: 2px 5px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.menu_div a {
+  font-size: 1em;
+  display: inline-block;
+  padding: 2px 5px;
+  height: 27px;
+  width: 80%;
+  line-height: 27px;
+}
+
+.menu_div a span {
+  float: right;
+}
