@@ -12,6 +12,6 @@ public class TestController {
     public void testAdminController() throws java.lang.Exception {
         AdminController controller = new AdminController();
         MockMvc mock = standaloneSetup(controller).build();
-        mock.perform(get("/admin/index")).andExpect(view().name("home"));
+        mock.perform(get("/backend/index")).andExpect(view().name("home"));
     }
 }

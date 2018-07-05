@@ -1,0 +1,102 @@
+html {
+  background: url('../pics/pika-396886-unsplash.jpg');
+  background-size: cover;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 800px;
+  height: 600px;
+  font-family: Consolas;
+}
+
+#input_div {
+  margin: 15% auto;
+  width: 50%;
+  height: 60%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 3px;
+}
+
+#input_div div {
+  margin: 0 auto;
+  padding: 15% 0 0 0;
+  width: 90%;
+  height: 60px;
+}
+
+#input_div div:nth-child(2),
+#input_div div:nth-child(3) {
+  padding: 7% 0 0 0;
+}
+
+#input_div div input {
+  display: block;
+  margin: 0 auto;
+  height: 54px;
+  width: 65%;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.5em;
+}
+
+#input_div div input[name='account_txt'],
+#input_div div input[name='account_psw'] {
+  width: 60%;
+  padding: 0 55px;
+  border: 1px solid #003333;
+  color: #003333;
+}
+
+#input_div div input[name='account_txt'] {
+  background: url('../pics/account.png');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+#input_div div input[name='account_psw'] {
+  background: url('../pics/psw.png');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+#input_div div input[type='submit'] {
+  background: #003333;
+  color: #FFFFFF;
+}
+
+#input_div div input[type='submit']:hover {
+  cursor: pointer;
+}
+
+.eye_close {
+  background: url('../pics/eye-close.png');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  right: -300px;
+  bottom: 45px;
+  display: inline-block;
+}
+
+.eye_open {
+  background: url('../pics/eye-open.png');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  right: -300px;
+  bottom: 45px;
+  display: inline-block;
+}
+
+#input_div div span:hover {
+  cursor: pointer;
+}

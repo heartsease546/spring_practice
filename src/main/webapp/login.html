@@ -4,6 +4,54 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Welcome to login Heartsease backend!</title>
   <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/axios.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+
+      var eye_open_close = new Vue({
+        el: '#eye_pic',
+        data: {
+        },
+        methods: {
+          displayPsw: function() {
+            let eye = document.getElementById('eye_pic');
+            let psw_input = document.getElementsByName('account_psw')[0];
+            if (eye.getAttribute('class') == 'eye_close') {
+              eye.setAttribute('title', 'Display Password');
+              eye.setAttribute('class', 'eye_open');
+              psw_input.setAttribute('type', 'text');
+            } else {
+              eye.setAttribute('title', 'Hide Password');
+              eye.setAttribute('class', 'eye_close');
+              psw_input.setAttribute('type', 'password');
+            }
+          }
+        }
+      });
+
+      var login = new Vue({
+        el: 'input[type="submit"]'
+
+      });
+      console.log(login);
+    }
+    // $(function() {
+    //   $('#input_div div span').click(function(){
+    //     if ($(this).hasClass('eye_close') == true) {
+    //       $('input[name="account_psw"]').prop('type', 'text');
+    //       $(this).prop('title', 'Display Password');
+    //       $(this).removeClass('eye_close');
+    //       $(this).addClass('eye_open');
+    //     } else {
+    //       $('input[name="account_psw"]').prop('type', 'password');
+    //       $(this).prop('title', 'Hide Password');
+    //       $(this).removeClass('eye_open');
+    //       $(this).addClass('eye_close');
+    //     }
+    //   });
+    // })
+  </script>
   <style type="text/css">
     html {
       background: url('pics/pika-396886-unsplash.jpg');
@@ -13,24 +61,25 @@
       margin: 0 auto;
       padding: 0; 
       width: 800px;
-      height: 800px;
+      height: 600px;
+      font-family: Consolas;
     }
     #input_div {
       margin: 15% auto;
       width: 50%;
-      height: 50%;
+      height: 60%;
       background: rgba(255, 255, 255, 0.5);
       border: none;
       border-radius: 3px;
     }
     #input_div div {
       margin: 0 auto;
-      padding: 7% 0;
+      padding: 15% 0 0 0;
       width: 90%;
       height: 60px;
     }
     #input_div div:nth-child(2), #input_div div:nth-child(3) {
-      padding: 0 0 7% 0;
+      padding: 7% 0 0 0;
     }
     #input_div div input {
       display: block;
@@ -65,6 +114,9 @@
       background: #003333;
       color: #FFFFFF;
     }
+    #input_div div input[type='submit']:hover {
+      cursor: pointer;
+    }
     .eye_close {
       background: url('pics/eye-close.png');
       background-size: 35px;
@@ -95,28 +147,15 @@
 <body>
   <div id="input_div">
     <div>
-      <input type="text" name="account_txt">
+      <input type="text" name="account_txt" placeholder="        Account" title="Please input your account">
     </div>
     <div>
-      <input type="password" name="account_psw">
-      <span class="eye_close"></span>
+      <input type="password" name="account_psw" placeholder="        Password" title="Please input your password">
+      <span id="eye_pic" class="eye_close" title="Hide Password" @click="displayPsw"></span>
     </div>
     <div>
-      <input type="submit" name="login" value="Login">
+      <input type="submit" name="login" value="Login" title="Login">
     </div>
   </div>
 </body>
-  <script type="text/javascript">
-    $('#input_div div span').click(function(){
-      if ($(this).hasClass('eye_close') == true) {
-        $('input[name="account_psw"]').prop('type', 'text');
-        $(this).removeClass('eye_close');
-        $(this).addClass('eye_open');
-      } else {
-        $(this).removeClass('eye_open');
-        $(this).addClass('eye_close');
-        $('input[name="account_psw"]').prop('type', 'password');
-      }
-    });
-  </script>
 </html>

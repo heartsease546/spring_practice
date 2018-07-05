@@ -21,7 +21,7 @@
       minute = current_time.getMinutes();
       second = current_time.getSeconds() + 1;
       monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      dayArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       $('#current_time_span').text(date + " " + monthArr[month] + ", " + year + "  " + dayArr[day] + "  " + hour + ":" + minute + ":" + second);
     }
     setInterval('displayCurrentTime()', 1000);

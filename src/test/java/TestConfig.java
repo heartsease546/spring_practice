@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 public class TestConfig {
 
     @Autowired
-    private AdminService adminService = new AdminServiceImpl();
+    private AdminService adminService;
 
     @Test
     public void serviceShouldNotBeNull () {

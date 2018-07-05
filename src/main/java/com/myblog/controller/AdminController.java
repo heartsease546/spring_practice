@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,20 +24,28 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping(value = "/index", method = POST)
+    @RequestMapping(value = "/index", method = GET)
     public String home() {
         LOGGER.info("view name: home");
         return "home"; // view name, will be read by Spring MVC
     }
 
     @RequestMapping(value = "/login", method = POST)
+    @ResponseBody
     public String login(HttpServletRequest request) {
         String account = request.getParameter("txt_account");
         String password = request.getParameter("txt_password");
         Admin admin = adminService.getAdmin(account, password);
         if (admin == null) {
             LOGGER.warn("admin name & password invalid.");
-            System.out.println("admin name & password invalid."); }
+            System.out.println("admin name & password invalid.");
+            return "null";
+        }
+        return "exist";
+    }
+
+    @RequestMapping(value = "/login", method = GET)
+    public String login() {
         return "login";
     }
 
