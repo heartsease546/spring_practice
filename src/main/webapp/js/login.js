@@ -31,7 +31,7 @@ window.onload = function() {
         let password = document.getElementsByName('account_psw')[0].value;
         console.log(account + ', ' + password);
         axios.post(
-          'http://localhost:9090/spring/backend/login',
+          'http://localhost:9999/spring/backend/login',
           {
             txt_account: account,
             txt_password: password
@@ -42,6 +42,12 @@ window.onload = function() {
             }
           }).then(function(response){
             console.log(response);
+            if (response.data == 'exist') {
+              axios.post(
+                'http://localhost:9999/spring/backend/',
+                {}, {}
+              )
+            }
           }
         )
       }
