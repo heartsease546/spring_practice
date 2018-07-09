@@ -56,7 +56,8 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/login", method = POST)
-    @ResponseBody
+    // this annotation stands for returning origin text to page
+    // @ResponseBody
     // public String login(HttpServletRequest request) {
     //     String account = request.getParameter("txt_account");
     //     String password = request.getParameter("txt_password");
@@ -75,7 +76,7 @@ public class AdminController {
             System.out.println("request account: " + account + ", password: " + password);
             Admin admin = adminService.getAdmin(account, password);
             if (admin != null) {
-                LOGGER.warn("admin name & password passed.");
+                LOGGER.info("admin name & password passed.");
                 System.out.println("admin name & password passed.");
                 request.getSession().setAttribute("admin", admin);
                 return "exist";
