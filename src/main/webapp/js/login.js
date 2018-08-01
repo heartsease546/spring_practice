@@ -46,11 +46,7 @@ window.onload = function() {
               axios.post(
                 'http://localhost:9999/spring/backend/',
                 {}, {}
-              ).then(function(response){
-                if () {
-
-                }
-              })
+              )
             }
           }
         )

@@ -57,7 +57,7 @@ public class AdminController {
 
     @RequestMapping(value = "/login", method = POST)
     // this annotation stands for returning origin text to page
-    // @ResponseBody
+    @ResponseBody
     // public String login(HttpServletRequest request) {
     //     String account = request.getParameter("txt_account");
     //     String password = request.getParameter("txt_password");
